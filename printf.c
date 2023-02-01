@@ -6,7 +6,7 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 02:06:53 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/01 15:52:58 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:10:20 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int	option(char c, va_list params)
 {
 	if (c == 'c')
-		return (ft_putchar((char) va_arg(params, char)));
+		return (ft_putchar((int) va_arg(params, int)));
 	if (c == 's')
 		return (ft_putstr((char *) va_arg(params, char *)));
 	if (c == 'p')
 		return (1);
 	if (c == 'd')
-		return (displayInt((int) va_arg(params, int)));
+		return (print_int((int) va_arg(params, int)));
 	if (c == 'i')
 		return (ft_nbrbase((int) va_arg(params, int), "0123456789"));
 	if (c == 'u')
@@ -31,7 +31,7 @@ int	option(char c, va_list params)
 	if (c == 'X')
 		return (ft_nbrbase((int) va_arg(params, int), "0123456789ABCDEF"));
 	if (c == '%')
-		return (ft_putchar("%"));
+		return (ft_putchar('%'));
 	else
 		return (-1);
 }
@@ -57,6 +57,6 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	ft_printf("Test\n");
+	ft_printf("%d\n", ft_printf("%d\n", ft_printf("Test\n")));
 	return (0);
 }

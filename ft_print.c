@@ -6,19 +6,19 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:23:24 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/01 15:48:57 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:58:28 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	printInt(int value)
+int	print_int(int value)
 {
 	int displayInt;
 
 	if (value < 10)
 		return (ft_putchar(value + 48));
-	displayInt = printInt(value / 10);
+	displayInt = print_int(value / 10);
 	ft_putchar(value % 10 + 48);
 	return (displayInt + 1);
 }

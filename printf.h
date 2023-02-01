@@ -6,7 +6,7 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:21:11 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/01 15:51:50 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:57:37 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_putstr(char *s);
 
 int	strlenbase(char *base);
 
-int	displayInt(int value);
+int	print_int(int value);
 
 int	ft_nbrbase(int num, char *base);
 
