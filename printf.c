@@ -6,7 +6,7 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 02:06:53 by romaurel          #+#    #+#             */
-/*   Updated: 2023/01/08 17:32:41 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/01 11:40:45 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,47 @@
 int	option(char c, va_list params)
 {
 	if (c == 'c')
-		write(1, params, 1);
+		return (ft_putchar(params));
+	if (c == 's')
+		return (ft_putstr(params));
+	if (c == 'p')
+		return ();
+	if (c == 'd')
+		return ();
+	if (c == 'i')
+		return ();
+	if (c == 'u')
+		return ();
+	if (c == 'x')
+		return ();
+	if (c == 'X')
+		return ();
+	if (c == '%')
+		return (ft_putchar("%"));
+	else
+		return (-1);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	int	i;
-	int	count;
-	va_list params;
-	va_start(params, str);
+	int		i;
+	int		count;
+	va_list	params;
 
-	i = 0;
+	va_start(params, str);
+	i = -1;
 	count = 0;
-	while (str[i])
+	while (str[++i])
 	{
 		if (str[i] == '%')
-			count += option(str[i + 1], params);
+			count += option(str[i++ + 1], params);
 		else
-			count++;
+			count += ft_putchar(str[i]);
 	}
-	return (i);
+	return (count);
 }
 
-int	main()
+int	main(void)
 {
 	ft_printf("Test\n");
 	return (0);
