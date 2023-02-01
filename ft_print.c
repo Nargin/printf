@@ -6,7 +6,7 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:23:24 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/01 19:33:58 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/01 21:57:27 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	print_int(int value)
 {
-	int displayInt;
+	int	display_int;
 
 	if (value < 10)
 		return (ft_putchar(value + 48));
-	displayInt = print_int(value / 10);
+	display_int = print_int(value / 10);
 	ft_putchar(value % 10 + 48);
-	return (displayInt + 1);
+	return (display_int + 1);
 }
 
 int	ft_putchar(char c)
@@ -41,8 +41,8 @@ int	ft_putstr(char *s)
 
 int	ft_nbrbase(int num, char *base)
 {
-	int	i;
-	int	count;
+	int		i;
+	int		count;
 	char	print[8];
 
 	i = 0;
@@ -52,7 +52,7 @@ int	ft_nbrbase(int num, char *base)
 		count += ft_putchar('-');
 		if (num == -2147483648)
 		{
-			print[i++] = base[(2147483648 %	strlenbase(base))];
+			print[i++] = base[(2147483648 % strlenbase(base))];
 			num /= strlenbase(base);
 		}
 		num = -num;

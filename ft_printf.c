@@ -6,17 +6,17 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 02:06:53 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/01 19:34:10 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/02 00:22:29 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-# define flag "cspdiuxX%"
+#define FLAG "cspdiuxX%"
 
 int	test_option(char c)
 {
-	while (*flag)
-		if (c == *flag)
+	while (*FLAG)
+		if (c == *FLAG)
 			return (1);
 	return (0);
 }
@@ -24,7 +24,7 @@ int	test_option(char c)
 int	option(char c, va_list params)
 {
 	if (c == 'c')
-		return (ft_putchar(va_arg(params, char));
+		return (ft_putchar(va_arg(params, int)));
 	if (c == 's')
 		return (ft_putstr((char *) va_arg(params, char *)));
 	if (c == 'p')
@@ -65,6 +65,6 @@ int	ft_printf(const char *str, ...)
 /*
 int	main(void)
 {
-	ft_printf("%d\n", ft_printf("Test% %d  %s\n", 56, 54, "test"));
+	ft_printf("%d\n", ft_printf("Test% %d %c\n", 56, 0));
 	return (0);
 }*/
