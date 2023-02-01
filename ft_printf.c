@@ -11,11 +11,20 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+# define flag "cspdiuxX%"
+
+int	test_option(char c)
+{
+	while (*flag)
+		if (c == *flag)
+			return (1);
+	return (0);
+}
 
 int	option(char c, va_list params)
 {
 	if (c == 'c')
-		return (ft_putchar((int) va_arg(params, int)));
+		return (ft_putchar(va_arg(params, char));
 	if (c == 's')
 		return (ft_putstr((char *) va_arg(params, char *)));
 	if (c == 'p')
@@ -46,7 +55,7 @@ int	ft_printf(const char *str, ...)
 	count = 0;
 	while (str[++i])
 	{
-		if (str[i] == '%' && str[i + 1])
+		if (str[i] == '%' && str[i + 1] && test_option(str[i + 1]))
 			count += option(str[i++ + 1], params);
 		else
 			count += ft_putchar(str[i]);
