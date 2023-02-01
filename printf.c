@@ -6,7 +6,7 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 02:06:53 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/01 11:40:45 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:52:58 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 int	option(char c, va_list params)
 {
 	if (c == 'c')
-		return (ft_putchar(params));
+		return (ft_putchar((char) va_arg(params, char)));
 	if (c == 's')
-		return (ft_putstr(params));
+		return (ft_putstr((char *) va_arg(params, char *)));
 	if (c == 'p')
-		return ();
+		return (1);
 	if (c == 'd')
-		return ();
+		return (displayInt((int) va_arg(params, int)));
 	if (c == 'i')
-		return ();
+		return (ft_nbrbase((int) va_arg(params, int), "0123456789"));
 	if (c == 'u')
-		return ();
+		return (ft_nbrbase((unsigned int) va_arg(params, unsigned int), "0123456789"));
 	if (c == 'x')
-		return ();
+		return (ft_nbrbase((int) va_arg(params, int), "0123456789abcdef"));
 	if (c == 'X')
-		return ();
+		return (ft_nbrbase((int) va_arg(params, int), "0123456789ABCDEF"));
 	if (c == '%')
 		return (ft_putchar("%"));
 	else

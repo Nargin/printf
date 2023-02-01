@@ -6,7 +6,7 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:23:24 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/01 15:10:35 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:48:57 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,22 @@ int	ft_nbrbase(int num, char *base)
 
 	i = 0;
 	count = 0;
-	if (nbr < 0)
+	if (num < 0)
 	{
 		count += ft_putchar('-');
-		if (nbr == -2147483648)
+		if (num == -2147483648)
 		{
-			print[i++] 
-			
+			print[i++] = base[(2147483648 %	strlenbase(base))];
+			num /= strlenbase(base);
 		}
+		num = -num;
 	}
-}
-
-int	main(void)
-{
-	printInt(ft_putstr("jofoiqwjdoiqwj"));
+	while (num > 0)
+	{
+		print[i++] = base[num % strlenbase(base)];
+		num /= strlenbase(base);
+	}
+	while (i)
+		count += ft_putchar(print[--i]);
+	return (count);
 }
