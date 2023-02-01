@@ -1,4 +1,4 @@
-SRC = printf.c
+SRC = ft_printf.c ft_print.c utils.c
 
 OBJS = $(SRC:.c=.o)
 

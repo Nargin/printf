@@ -6,11 +6,11 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:23:24 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/01 15:58:28 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:33:58 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	print_int(int value)
 {
@@ -43,7 +43,7 @@ int	ft_nbrbase(int num, char *base)
 {
 	int	i;
 	int	count;
-	char	print[32];
+	char	print[8];
 
 	i = 0;
 	count = 0;
