@@ -6,7 +6,7 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 02:06:53 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/02 23:59:54 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/03 00:28:14 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,3 @@ int	ft_printf(const char *str, ...)
 	}
 	return (count);
 }
-/*
-int	main(void)
-{
-	ft_printf("%d\n", ft_printf("Test% %d %s\n", 56, ""));
-	return (0);
-}*/
