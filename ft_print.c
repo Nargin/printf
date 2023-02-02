@@ -6,7 +6,7 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:23:24 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/02 00:29:53 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:02:59 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_putstr(char *s)
 {
 	int	count;
 
+	if (!s)
+		return (ft_putstr("(null)"));
 	if (!strlenbase(s))
 		return (0);
 	count = 0;
@@ -45,7 +47,7 @@ int	ft_nbrbase(int num, char *base)
 {
 	int		i;
 	int		count;
-	char	print[8];
+	char	print[16];
 
 	i = 0;
 	count = 0;
@@ -59,7 +61,25 @@ int	ft_nbrbase(int num, char *base)
 		}
 		num = -num;
 	}
-	while (num > 0)
+	while (num > 0 || i == 0)
+	{
+		print[i++] = base[num % strlenbase(base)];
+		num /= strlenbase(base);
+	}
+	while (i)
+		count += ft_putchar(print[--i]);
+	return (count);
+}
+
+int	u_base(unsigned int num, char *base)
+{
+	char	print[16];
+	int		i;
+	int		count;
+
+	i = 0;
+	count = 0;
+	while (num > 0 || i == 0)
 	{
 		print[i++] = base[num % strlenbase(base)];
 		num /= strlenbase(base);

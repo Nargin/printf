@@ -3,5 +3,7 @@
 
 int	main(void)
 {
-	printf("%s\n", NULL);
+	int	i = 1;
+
+	ft_printf("%d\n", memory_add(&i, sizeof(i)));
 }

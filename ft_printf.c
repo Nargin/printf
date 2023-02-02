@@ -6,12 +6,26 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 02:06:53 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/02 00:39:18 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/02 17:12:58 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #define FLAG "cspdiuxX%"
+
+int	memory_add(void *ptr, int size)
+{
+	int	i;
+	int	count;
+	unsigned char *p;
+
+	p = ptr;
+	i = 0;
+	count = 0;
+	while (size--)
+		count += ft_putchar(p[i++]);
+       return (count);	
+}
 
 int	test_option(char c)
 {
@@ -33,15 +47,15 @@ int	option(char c, va_list params)
 	if (c == 'p')
 		return (1);
 	if (c == 'd')
-		return (print_int((int) va_arg(params, int)));
+		return (ft_nbrbase((int) va_arg(params, int), "0123456789"));
 	if (c == 'i')
 		return (ft_nbrbase((int) va_arg(params, int), "0123456789"));
 	if (c == 'u')
-		return (print_int((unsigned int) va_arg(params, unsigned int)));
+		return (u_base((va_arg(params, unsigned int)), "0123456789"));
 	if (c == 'x')
-		return (ft_nbrbase((int) va_arg(params, int), "0123456789abcdef"));
+		return (u_base(va_arg(params, int), "0123456789abcdef"));
 	if (c == 'X')
-		return (ft_nbrbase((int) va_arg(params, int), "0123456789ABCDEF"));
+		return (u_base(va_arg(params, int), "0123456789ABCDEF"));
 	if (c == '%')
 		return (ft_putchar('%'));
 	return (-1);
