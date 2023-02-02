@@ -6,7 +6,7 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 02:06:53 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/02 00:22:29 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/02 00:39:18 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 int	test_option(char c)
 {
-	while (*FLAG)
-		if (c == *FLAG)
+	int	i;
+
+	i = -1;
+	while (FLAG[++i])
+		if (c == FLAG[i])
 			return (1);
 	return (0);
 }
@@ -65,6 +68,6 @@ int	ft_printf(const char *str, ...)
 /*
 int	main(void)
 {
-	ft_printf("%d\n", ft_printf("Test% %d %c\n", 56, 0));
+	ft_printf("%d\n", ft_printf("Test% %d %s\n", 56, ""));
 	return (0);
 }*/

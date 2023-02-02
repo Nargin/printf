@@ -6,7 +6,7 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:23:24 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/01 21:57:27 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/02 00:29:53 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_putstr(char *s)
 {
 	int	count;
 
+	if (!strlenbase(s))
+		return (0);
 	count = 0;
 	while (*s)
 		count += ft_putchar(*s++);

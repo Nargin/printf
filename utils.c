@@ -6,7 +6,7 @@
 /*   By: romaurel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:13:40 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/01 19:34:19 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/02 00:30:16 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	strlenbase(char *base)
 {
 	int	i;
 
+	if (!base)
+		return (0);
 	i = 0;
 	while (base[i])
 		i++;
