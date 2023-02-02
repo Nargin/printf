@@ -6,25 +6,34 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 02:06:53 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/02 17:12:58 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/02 23:59:54 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #define FLAG "cspdiuxX%"
 
-int	memory_add(void *ptr, int size)
+int	memory_add(unsigned long long int *num, char *base)
 {
-	int	i;
-	int	count;
-	unsigned char *p;
+	int				i;
+	int				count;
+	unsigned long long int	nbr;
+	char			print[16];
 
-	p = ptr;
+	if (!num)
+		return (ft_putstr("(nil)"));
 	i = 0;
 	count = 0;
-	while (size--)
-		count += ft_putchar(p[i++]);
-       return (count);	
+	nbr = (size_t) num;
+	count += ft_putstr("0x");
+	while (nbr > 0)
+	{
+		print[i++] = base[nbr % 16];
+		nbr /= 16;
+	}
+	while (i)
+		count += ft_putchar(print[--i]);
+	return (count);
 }
 
 int	test_option(char c)
@@ -43,13 +52,13 @@ int	option(char c, va_list params)
 	if (c == 'c')
 		return (ft_putchar(va_arg(params, int)));
 	if (c == 's')
-		return (ft_putstr((char *) va_arg(params, char *)));
+		return (ft_putstr(va_arg(params, char *)));
 	if (c == 'p')
-		return (1);
+		return (memory_add(va_arg(params, void *), "0123456789abcdef"));
 	if (c == 'd')
-		return (ft_nbrbase((int) va_arg(params, int), "0123456789"));
+		return (ft_nbrbase(va_arg(params, int), "0123456789"));
 	if (c == 'i')
-		return (ft_nbrbase((int) va_arg(params, int), "0123456789"));
+		return (ft_nbrbase(va_arg(params, int), "0123456789"));
 	if (c == 'u')
 		return (u_base((va_arg(params, unsigned int)), "0123456789"));
 	if (c == 'x')

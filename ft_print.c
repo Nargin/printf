@@ -6,21 +6,22 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:23:24 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/02 16:02:59 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/03 00:18:22 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_int(int value)
+int	strlenbase(char *base)
 {
-	int	display_int;
+	int	i;
 
-	if (value < 10)
-		return (ft_putchar(value + 48));
-	display_int = print_int(value / 10);
-	ft_putchar(value % 10 + 48);
-	return (display_int + 1);
+	if (!base)
+		return (0);
+	i = 0;
+	while (base[i])
+		i++;
+	return (i);
 }
 
 int	ft_putchar(char c)

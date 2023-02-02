@@ -6,7 +6,7 @@
 /*   By: romaurel <romaurel@student.42perpigna      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:21:11 by romaurel          #+#    #+#             */
-/*   Updated: 2023/02/02 17:11:26 by romaurel         ###   ########.fr       */
+/*   Updated: 2023/02/02 23:40:22 by romaurel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ int	ft_putstr(char *s);
 
 int	strlenbase(char *base);
 
-int	print_int(int value);
-
 int	ft_nbrbase(int num, char *base);
 
 int	option(char c, va_list params);
@@ -35,6 +33,6 @@ int	ft_printf(const char *str, ...);
 
 int	u_base(unsigned int num, char *base);
 
-int	memory_add(void *ptr, int size);
+int	memory_add(unsigned long long int *num, char *base);
 
 #endif
